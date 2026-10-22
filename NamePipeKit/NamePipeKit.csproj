@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5D52D351-B73E-41FD-968E-7A7E14ABA860}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NamePipeKit</RootNamespace>
+    <AssemblyName>NamePipeKit</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Memory, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL" />
+    <Reference Include="System.Text.Json, Version=10.0.0.10, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstractions\Attributes\PipeAttributes.cs" />
+    <Compile Include="Abstractions\Handling\IPipeHandling.cs" />
+    <Compile Include="Abstractions\Logging\IPipeLogger.cs" />
+    <Compile Include="Abstractions\Protocol\IFrameCodec.cs" />
+    <Compile Include="Abstractions\Protocol\PipeProtocol.cs" />
+    <Compile Include="Abstractions\Serialization\IPipeSerializer.cs" />
+    <Compile Include="Abstractions\Transport\ITransport.cs" />
+    <Compile Include="NamePipeKit\Client\PipeClient.cs" />
+    <Compile Include="NamePipeKit\Discovery\PipeMethodInvokerFactory.cs" />
+    <Compile Include="NamePipeKit\Discovery\PipeMethodRegistry.cs" />
+    <Compile Include="NamePipeKit\Handling\CallMethodHandler.cs" />
+    <Compile Include="NamePipeKit\Handling\EventBus.cs" />
+    <Compile Include="NamePipeKit\Handling\HandlerRegistry.cs" />
+    <Compile Include="NamePipeKit\Handling\MessageHandler.cs" />
+    <Compile Include="NamePipeKit\Handling\SubscribeHandler.cs" />
+    <Compile Include="NamePipeKit\Logging\ConsolePipeLogger.cs" />
+    <Compile Include="NamePipeKit\Middleware\BuiltInMiddlewares.cs" />
+    <Compile Include="NamePipeKit\Protocol\Crc32.cs" />
+    <Compile Include="NamePipeKit\Protocol\FrameCodec.cs" />
+    <Compile Include="NamePipeKit\Protocol\FrameCodecV1.cs" />
+    <Compile Include="NamePipeKit\Serialization\JsonPipeSerializer.cs" />
+    <Compile Include="NamePipeKit\Server\PipeServer.cs" />
+    <Compile Include="NamePipeKit\Server\PipeServerBuilder.cs" />
+    <Compile Include="NamePipeKit\Transport\NamedPipeClientTransport.cs" />
+    <Compile Include="NamePipeKit\Transport\NamedPipeServerTransport.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

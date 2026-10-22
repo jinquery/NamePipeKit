@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="NamePipeKit.ClientSample/NamePipeKit.ClientSample.csproj" />
+  <Project Path="NamePipeKit.NakedBenchmark/NamePipeKit.NakedBenchmark.csproj" />
+  <Project Path="NamePipeKit.ServerSample/NamePipeKit.ServerSample.csproj" />
+  <Project Path="NamePipeKit.StressTest/NamePipeKit.StressTest.csproj" />
+  <Project Path="NamePipeKit/NamePipeKit.csproj" />
+</Solution>

@@ -1,0 +1,458 @@
+<mxfile host="Electron" modified="2026-10-22T05:12:14.221Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.2.8 Chrome/112.0.5615.165 Electron/24.2.0 Safari/537.36" version="21.2.8" etag="J9e50KLQR97-TFvoGQZB" type="device" pages="4">
+  <diagram name="整体架构" id="architecture">
+    <mxGraphModel dx="2056" dy="818" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="NamePipeKit 整体架构" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="500" y="20" width="600" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="biz-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="100" y="100" width="1400" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="biz-title" value="业务层" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#1B4F9C;" parent="1" vertex="1">
+          <mxGeometry x="110" y="105" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="biz-1" value="[PipeService]&#xa;[PipeMethod]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="150" y="130" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="biz-2" value="IPipeRequestHandler&#xa;（CallMethod / Message /&#xa;Subscribe / Stream / 自定义）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="340" y="130" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="biz-3" value="EventBus&#xa;（订阅/Publish）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="610" y="130" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="biz-4" value="IPipeMiddleware&#xa;（鉴权/限流/日志）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="800" y="130" width="180" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="orch-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="100" y="240" width="1400" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="orch-title" value="编排层" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#2D6A2D;" parent="1" vertex="1">
+          <mxGeometry x="110" y="245" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="orch-1" value="PipeServer&#xa;（核心编排）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=11;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="150" y="285" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="orch-2" value="PipeServerBuilder&#xa;（链式构建）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="340" y="285" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="orch-3" value="HandlerRegistry&#xa;（ContentType → Handler）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="520" y="285" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="orch-4" value="PipeMethodRegistry&#xa;（[PipeMethod] 扫描）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="750" y="285" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="orch-5" value="Pipeline&#xa;（中间件链缓存）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="980" y="285" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="proto-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="100" y="410" width="1400" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="proto-title" value="协议层" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#8B6E00;" parent="1" vertex="1">
+          <mxGeometry x="110" y="415" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="proto-1" value="IFrameCodec&#xa;（接口，可换版本）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=11;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="150" y="450" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="proto-2" value="FrameCodecV1&#xa;（同步 IO · 无 Flush · CRC32）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="380" y="450" width="260" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="proto-3" value="PipeFrame&#xa;（Magic/Ver/SeqID/Header/Body/CRC）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="670" y="450" width="280" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="proto-4" value="MessageType 枚举&#xa;Request / Response / Heartbeat&#xa;ServerPush / ResponseChunk / ResponseEnd" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="980" y="450" width="260" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ser-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+          <mxGeometry x="100" y="560" width="1400" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="ser-title" value="序列化层" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#995C00;" parent="1" vertex="1">
+          <mxGeometry x="110" y="565" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ser-1" value="IPipeSerializer&#xa;（接口）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;fontSize=11;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="150" y="600" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ser-2" value="JsonPipeSerializer&#xa;（System.Text.Json）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="380" y="600" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ser-3" value="可替换：&#xa;MessagePack / Protobuf" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=11;dashed=1;" parent="1" vertex="1">
+          <mxGeometry x="620" y="600" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="trans-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="100" y="690" width="1400" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="trans-title" value="传输层" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#5D3E70;" parent="1" vertex="1">
+          <mxGeometry x="110" y="695" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="trans-1" value="IPipeServerTransport&#xa;（接口）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontSize=11;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="150" y="730" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="trans-2" value="NamedPipeServerTransport&#xa;（专用线程池 · 同步 IO）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="380" y="730" width="240" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="trans-3" value="IPipeClientTransport&#xa;（接口）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontSize=11;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="150" y="790" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="trans-4" value="NamedPipeClientTransport&#xa;（单 Worker · 状态机）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="380" y="790" width="240" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="trans-5" value="可替换：&#xa;TCP / UnixDomainSocket / 共享内存" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=11;dashed=1;" parent="1" vertex="1">
+          <mxGeometry x="660" y="745" width="240" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;" parent="1" source="biz-bg" target="orch-bg" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;" parent="1" source="orch-bg" target="proto-bg" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;" parent="1" source="proto-bg" target="ser-bg" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;" parent="1" source="ser-bg" target="trans-bg" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="请求流程" id="request-flow">
+    <mxGraphModel dx="2056" dy="818" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title2" value="一次请求的完整流程" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="500" y="20" width="600" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="client-swim" value="客户端" style="swimlane;whiteSpace=wrap;html=1;startSize=30;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="100" y="100" width="400" height="800" as="geometry" />
+        </mxCell>
+        <mxCell id="c1" value="InvokeAsync(&quot;calc.add&quot;, 1, 2)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;" parent="client-swim" vertex="1">
+          <mxGeometry x="50" y="40" width="300" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="c2" value="PipeClient 构造 Request 帧&#xa;（Header + Body 序列化）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;" parent="client-swim" vertex="1">
+          <mxGeometry x="50" y="110" width="300" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="c3" value="加入请求队列&#xa;（BlockingCollection）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;" parent="client-swim" vertex="1">
+          <mxGeometry x="50" y="190" width="300" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="c4" value="Worker 线程从队列取" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;" parent="client-swim" vertex="1">
+          <mxGeometry x="50" y="270" width="300" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="c5" value="codec.Write(stream, frame)&#xa;【同步写 · 不 Flush】" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" parent="client-swim" vertex="1">
+          <mxGeometry x="70" y="375" width="300" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="c6" value="codec.Read(stream)&#xa;【同步读】" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" parent="client-swim" vertex="1">
+          <mxGeometry x="50" y="550" width="300" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="c7" value="TCS.TrySetResult(frame)&#xa;（RunContinuationsAsynchronously）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=11;" parent="client-swim" vertex="1">
+          <mxGeometry x="50" y="640" width="300" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="c8" value="await 返回 → 反序列化 Data → 返回" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;" parent="client-swim" vertex="1">
+          <mxGeometry x="50" y="720" width="300" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="pipe" value="Windows Named Pipe&#xa;（内核缓冲区）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;dashed=1;fontSize=12;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="600" y="400" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="server-swim" value="服务端" style="swimlane;whiteSpace=wrap;html=1;startSize=30;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="900" y="100" width="400" height="800" as="geometry" />
+        </mxCell>
+        <mxCell id="s1" value="Accept 专用线程 × 32&#xa;WaitForConnection（同步阻塞）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=11;" parent="server-swim" vertex="1">
+          <mxGeometry x="50" y="40" width="300" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="s2" value="每连接开专用线程&#xa;（PipeConn-xxxxxxxx）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=11;" parent="server-swim" vertex="1">
+          <mxGeometry x="50" y="120" width="300" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="s3" value="codec.Read(stream)&#xa;【同步读】" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" parent="server-swim" vertex="1">
+          <mxGeometry x="50" y="340" width="300" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="s4" value="反序列化 → 构造 PipeRequest" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;" parent="server-swim" vertex="1">
+          <mxGeometry x="50" y="420" width="300" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="s5" value="Pipeline(ctx)&#xa;Exception → Logging → Timing" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" parent="server-swim" vertex="1">
+          <mxGeometry x="50" y="490" width="300" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="s6" value="HandlerRegistry.Resolve(ContentType)&#xa;CallMethodHandler.HandleAsync" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" parent="server-swim" vertex="1">
+          <mxGeometry x="50" y="570" width="300" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="s7" value="Invoker(service, args) → 返回值" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;" parent="server-swim" vertex="1">
+          <mxGeometry x="50" y="650" width="300" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="s8" value="构造 Response 帧 → codec.Write&#xa;【同步写 · 不 Flush】" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" parent="server-swim" vertex="1">
+          <mxGeometry x="50" y="710" width="300" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="fc1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;" parent="1" source="c1" target="c2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fc2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;" parent="1" source="c2" target="c3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fc3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;" parent="1" source="c3" target="c4" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fc4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;" parent="1" source="c4" target="c5" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fc5" value="① 写入" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#0000CC;fontColor=#0000CC;" parent="1" source="c5" target="pipe" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fc6" value="② 读取" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#0000CC;fontColor=#0000CC;" parent="1" source="pipe" target="s3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fc7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;" parent="1" source="s1" target="s2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fc8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;" parent="1" source="s3" target="s4" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fc9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;" parent="1" source="s4" target="s5" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fc10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;" parent="1" source="s5" target="s6" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fc11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;" parent="1" source="s6" target="s7" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fc12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;" parent="1" source="s7" target="s8" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fc13" value="③ 回写响应" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#009900;fontColor=#009900;" parent="1" source="s8" target="pipe" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fc14" value="④ 读取响应" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#009900;fontColor=#009900;exitX=0.25;exitY=1;exitDx=0;exitDy=0;" parent="1" source="pipe" target="c6" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="650" y="540" />
+              <mxPoint x="470" y="540" />
+              <mxPoint x="470" y="675" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fc15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;" parent="1" source="c6" target="c7" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fc16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;" parent="1" source="c7" target="c8" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="协议帧格式" id="frame-format">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title3" value="NamePipeKit 协议帧格式（大端序）" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="20" width="800" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="row1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="100" y="120" width="1400" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="f-magic" value="Magic&#xa;2 B&#xa;0x50 0x50" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="100" y="120" width="100" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="f-ver" value="Version&#xa;1 B&#xa;=1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="200" y="120" width="80" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="f-flags" value="Flags&#xa;1 B" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="280" y="120" width="80" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="f-msgtype" value="MessageType&#xa;1 B&#xa;1-9" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="360" y="120" width="100" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="f-seq" value="SequenceId&#xa;8 B（大端）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontStyle=1;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="460" y="120" width="200" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="f-hlen" value="HeaderLength&#xa;4 B（大端）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;fontStyle=1;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="660" y="120" width="150" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="f-blen" value="BodyLength&#xa;4 B（大端）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;fontStyle=1;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="810" y="120" width="150" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="f-header" value="Header&#xa;N B（UTF-8 JSON）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;fontStyle=1;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="960" y="120" width="200" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="f-body" value="Body&#xa;M B（UTF-8 JSON / 二进制）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;fontStyle=1;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="120" width="220" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="f-crc" value="CRC32&#xa;4 B&#xa;对 Header+Body 计算" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontStyle=1;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1380" y="120" width="120" height="120" as="geometry" />
+        </mxCell>
+        <!-- 偏移标注 -->
+        <mxCell id="offset-label" value="偏移: 0 → 2 → 3 → 4 → 5 → 13 → 17 → 21 → 21+N → 21+N+M → 21+N+M+4" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="260" width="1400" height="30" as="geometry" />
+        </mxCell>
+        <!-- 固定头标识 -->
+        <mxCell id="fixed-header-label" value="固定头 21 字节" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontColor=#CC0000;" vertex="1" parent="1">
+          <mxGeometry x="250" y="80" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fixed-arrow" value="" style="endArrow=classic;html=1;rounded=0;strokeColor=#CC0000;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="350" y="110" as="sourcePoint" />
+            <mxPoint x="350" y="118" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <!-- 额外开销标识 -->
+        <mxCell id="overhead-label" value="每帧固定开销 25 字节（21 固定头 + 4 CRC）" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontColor=#006699;" vertex="1" parent="1">
+          <mxGeometry x="450" y="310" width="700" height="30" as="geometry" />
+        </mxCell>
+        <!-- 消息类型表 -->
+        <mxCell id="msgtype-title" value="MessageType 枚举" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="380" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="mt-1" value="1  Request             客户端 → 服务端，业务请求" style="text;html=1;strokeColor=none;fillColor=#dae8fc;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=13;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="100" y="420" width="700" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="mt-2" value="2  Response            服务端 → 客户端，业务响应" style="text;html=1;strokeColor=none;fillColor=#d5e8d4;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=13;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="100" y="455" width="700" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="mt-3" value="3  Heartbeat           双向心跳保活" style="text;html=1;strokeColor=none;fillColor=#f5f5f5;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=13;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="100" y="490" width="700" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="mt-4" value="4  Handshake           协议协商（预留）" style="text;html=1;strokeColor=none;fillColor=#f5f5f5;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=13;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="100" y="525" width="700" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="mt-5" value="5  Error               协议级错误" style="text;html=1;strokeColor=none;fillColor=#f8cecc;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=13;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="100" y="560" width="700" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="mt-6" value="6  Cancel              取消请求（预留）" style="text;html=1;strokeColor=none;fillColor=#f5f5f5;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=13;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="100" y="595" width="700" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="mt-7" value="7  ServerPush          服务端主动推送" style="text;html=1;strokeColor=none;fillColor=#fff2cc;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=13;fontStyle=1;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="100" y="630" width="700" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="mt-8" value="8  ResponseChunk       流式响应数据块" style="text;html=1;strokeColor=none;fillColor=#fff2cc;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=13;fontStyle=1;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="100" y="665" width="700" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="mt-9" value="9  ResponseEnd         流式响应结束" style="text;html=1;strokeColor=none;fillColor=#fff2cc;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=13;fontStyle=1;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="100" y="700" width="700" height="30" as="geometry" />
+        </mxCell>
+        <!-- 状态码表 -->
+        <mxCell id="status-title" value="状态码" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="850" y="380" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sc-1" value="0000  成功" style="text;html=1;strokeColor=none;fillColor=#d5e8d4;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=13;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="850" y="420" width="500" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sc-2" value="1000  请求格式错误" style="text;html=1;strokeColor=none;fillColor=#fff2cc;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=13;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="850" y="455" width="500" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sc-3" value="1001  请求数据为空" style="text;html=1;strokeColor=none;fillColor=#fff2cc;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=13;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="850" y="490" width="500" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sc-4" value="1002  不支持的 ContentType" style="text;html=1;strokeColor=none;fillColor=#fff2cc;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=13;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="850" y="525" width="500" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sc-5" value="2000  方法不存在" style="text;html=1;strokeColor=none;fillColor=#fff2cc;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=13;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="850" y="560" width="500" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sc-6" value="3000  参数绑定失败" style="text;html=1;strokeColor=none;fillColor=#f8cecc;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=13;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="850" y="595" width="500" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sc-7" value="3001  方法调用失败" style="text;html=1;strokeColor=none;fillColor=#f8cecc;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=13;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="850" y="630" width="500" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sc-8" value="5000  服务端内部错误" style="text;html=1;strokeColor=none;fillColor=#f8cecc;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=13;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="850" y="665" width="500" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sc-9" value="5001  传输层错误" style="text;html=1;strokeColor=none;fillColor=#f8cecc;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=13;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="850" y="700" width="500" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="线程模型" id="thread-model">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title4" value="NamePipeKit 线程模型（50 并发 · 132 线程）" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="20" width="800" height="50" as="geometry" />
+        </mxCell>
+        <!-- 服务端 -->
+        <mxCell id="srv-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;opacity=50;" vertex="1" parent="1">
+          <mxGeometry x="100" y="100" width="700" height="1000" as="geometry" />
+        </mxCell>
+        <mxCell id="srv-title" value="服务端进程（独立）" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#2D6A2D;" vertex="1" parent="1">
+          <mxGeometry x="110" y="110" width="300" height="30" as="geometry" />
+        </mxCell>
+        <!-- Accept 线程 -->
+        <mxCell id="accept-group" value="Accept 专用线程 × 32（DefaultWaitSlotCap）" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="160" width="500" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="accept-thread" value="while (true):&#xa;  stream = CreateServerStream()&#xa;  stream.WaitForConnection()  ← 同步阻塞&#xa;  new Thread(HandleConnection).Start()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;align=left;fontSize=12;spacingLeft=10;spacingTop=5;" vertex="1" parent="1">
+          <mxGeometry x="130" y="200" width="600" height="100" as="geometry" />
+        </mxCell>
+        <!-- 连接线程 -->
+        <mxCell id="conn-group" value="连接专用线程 × N（每连接一个）" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="330" width="500" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="conn-t1" value="PipeConn-0001&#xa;while: Read/处理/Write" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;align=center;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="130" y="370" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="conn-t2" value="PipeConn-0002&#xa;while: Read/处理/Write" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;align=center;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="290" y="370" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="conn-t3" value="PipeConn-0003&#xa;while: Read/处理/Write" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;align=center;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="450" y="370" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="conn-tdots" value="…&#xa;（共 50 个）" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="610" y="370" width="100" height="70" as="geometry" />
+        </mxCell>
+        <!-- ThreadPool 状态 -->
+        <mxCell id="srv-tp" value="ThreadPool：接近空闲（仅处理 TCS continuation 和 Task.Run）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="500" width="600" height="60" as="geometry" />
+        </mxCell>
+        <!-- 服务端线程总数 -->
+        <mxCell id="srv-total" value="服务端线程数：32 + 50 = 82 线程" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="600" width="600" height="40" as="geometry" />
+        </mxCell>
+        <!-- 客户端 -->
+        <mxCell id="cli-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;opacity=50;" vertex="1" parent="1">
+          <mxGeometry x="850" y="100" width="700" height="1000" as="geometry" />
+        </mxCell>
+        <mxCell id="cli-title" value="客户端进程（独立 / 压测内嵌）" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#1B4F9C;" vertex="1" parent="1">
+          <mxGeometry x="860" y="110" width="300" height="30" as="geometry" />
+        </mxCell>
+        <!-- Worker 线程 -->
+        <mxCell id="worker-group" value="Worker 专用线程 × N（每 PipeClient 一个）" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="880" y="160" width="500" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="worker-t1" value="PipeWorker-0001&#xa;while: Take/Write/Read" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;align=center;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="880" y="200" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="worker-t2" value="PipeWorker-0002&#xa;while: Take/Write/Read" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;align=center;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="200" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="worker-t3" value="PipeWorker-0003&#xa;while: Take/Write/Read" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;align=center;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="200" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="worker-tdots" value="…&#xa;（共 50 个）" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1400" y="200" width="100" height="70" as="geometry" />
+        </mxCell>
+        <!-- Worker 内部细节 -->
+        <mxCell id="worker-detail-title" value="Worker 内部状态机" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="880" y="310" width="500" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="worker-detail" value="from queue.Take() in queue:&#xa;  if IsStream:&#xa;    codec.Write()&#xa;    while ResponseChunk: onChunk()&#xa;    ResponseEnd: TCS.TrySetResult()&#xa;  else:&#xa;    codec.Write()&#xa;    codec.Read()  ← 同步读&#xa;    TCS.TrySetResult(Response)&#xa;  ServerPush: PushReceived()&#xa;  Heartbeat: 忽略" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;align=left;fontSize=12;spacingLeft=10;spacingTop=5;" vertex="1" parent="1">
+          <mxGeometry x="880" y="350" width="620" height="180" as="geometry" />
+        </mxCell>
+        <!-- 客户端 ThreadPool -->
+        <mxCell id="cli-tp" value="ThreadPool：仅处理 TCS continuation&#xa;（RunContinuationsAsynchronously）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="880" y="560" width="620" height="60" as="geometry" />
+        </mxCell>
+        <!-- 客户端线程总数 -->
+        <mxCell id="cli-total" value="客户端线程数：50 Worker = 50 线程" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="880" y="650" width="620" height="40" as="geometry" />
+        </mxCell>
+        <!-- 总线程数 -->
+        <mxCell id="total" value="合计：82 + 50 = 132 线程（内嵌模式下 100+ 线程同进程）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#b85450;strokeColor=#b85450;fontSize=16;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="300" y="900" width="1000" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="note" value="提示：Windows 默认时间片 15.6ms，132 线程竞争会显著增加每次调度的等待时间。&#xa;这就是 QPS 从裸测 31825 下降到 937 的物理原因——不是代码 bug，是调度开销。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;align=left;fontSize=13;spacingLeft=10;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="300" y="1000" width="1000" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
