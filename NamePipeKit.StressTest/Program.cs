@@ -9,6 +9,9 @@ using NamePipeKit.Server;
 
 namespace NamePipeKit.StressTest
 {
+    /// <summary>
+    /// 压测
+    /// </summary>
     internal static class Program
     {
         private static async Task<int> Main(string[] args)
